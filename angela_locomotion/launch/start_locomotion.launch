@@ -1,0 +1,25 @@
+<launch>
+
+    <param name="/joystick_comport" type="string" value="/dev/input/js0" />
+
+	<param name="/roboclaw_baud_rate" type="int" value="38400" />
+	<param name="/roboclaw_comport" type="string" value="/dev/ttyS0" />
+	<param name="/roboclaw_addresses" type="string" value="128,129,130" />
+
+    <!-- joy node -->
+    <node respawn="false" pkg="joy" type="joy_node" name="joystick" ns="angela" >
+        <param name="dev" type="string" value="/dev/input/js0" />
+		<param name="autorepeat_rate"   value="1.0"/>
+		<param name="coalesce_interval" value="0.05"/>        
+    </node>
+
+    <!-- RosBridge Server -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+        <arg name="port" value="9090"/>
+    </include>
+
+    <!-- Drive Motors Node -->
+    <node name="node_drive_motors" ns="angela" pkg="angela_locomotion" type="node_drive_motors.py" respawn="true"/>
+
+
+</launch>

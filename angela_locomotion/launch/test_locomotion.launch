@@ -1,0 +1,6 @@
+<launch>
+
+    <!-- Drive Motors Node -->
+    <node name="node_test_locomotion" ns="angela" pkg="angela_locomotion" type="node_test_locomotion.py" respawn="true"/>
+
+</launch>

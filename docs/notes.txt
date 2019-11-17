@@ -1,0 +1,16 @@
+Joystick Package
+
+sudo apt-get install ros-melodic-joy
+
+ls /dev/input/
+
+sudo jstest /dev/input/jsX
+
+-------------
+
+Roboclaw
+
+pip install pyserial
+
+/dev/ttyS0
+
